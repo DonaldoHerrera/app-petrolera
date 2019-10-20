@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-fab routerLink="/subject/{{subject_id}}"  slot="start">
+          <ion-icon  name="arrow-round-back"></ion-icon>
+        </ion-fab>
+    <ion-title>homeworkadd</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <form [formGroup]="homeworkForm" (ngSubmit)="onSubmit()">
+        <ion-item>
+                <ion-label position="stacked">Titulo <ion-text color="danger">*</ion-text></ion-label>
+                <ion-input type="text" class="form-control" placeholder="" formControlName="title" required></ion-input>
+              </ion-item>
+        <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.title">
+                <div class="error-message" *ngIf="homeworkForm.get('title').hasError(error.type) && (homeworkForm.get('title').dirty || homeworkForm.get('title').touched) ">
+                    {{error.message}}
+                </div>
+            </ng-container>
+        </div>
+
+        <ion-item>
+                <ion-label position="stacked">Descripción <ion-text color="danger">*</ion-text></ion-label>
+                <ion-input type="text" class="form-control" placeholder="" formControlName="description"
+                required></ion-input>
+              </ion-item>
+        <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.description">
+                    <div class="error-message" *ngIf="homeworkForm.get('description').hasError(error.type) && (homeworkForm.get('description').dirty || homeworkForm.get('description').touched) ">
+                        {{error.message}}
+                    </div>
+                </ng-container>
+            </div>
+        <br>
+        <div class="ion-padding">
+                <ion-button (click)="onCreate()" [disabled]="!homeworkForm.valid" shape="round" size="default" color="primary" expand="block">Agregar tarea</ion-button>
+        </div>
+    </form>
+
+
+</ion-content>

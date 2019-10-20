@@ -1,0 +1,110 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>Registrarse</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <ion-item>
+            <ion-label position="stacked">Nombre de usuario <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input type="text" class="form-control" placeholder="" formControlName="username" required></ion-input>
+        </ion-item>
+        <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.username">
+                <div class="error-message"
+                    *ngIf="registerForm.get('username').hasError(error.type) && (registerForm.get('username').dirty || registerForm.get('username').touched) ">
+                    {{error.message}}
+                </div>
+            </ng-container>
+        </div>
+
+
+        <ion-item>
+            <ion-label position="stacked">Nombre <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input type="text" class="form-control" placeholder="" formControlName="name" required></ion-input>
+        </ion-item>
+        <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.name">
+                <div class="error-message"
+                    *ngIf="registerForm.get('name').hasError(error.type) && (registerForm.get('name').dirty || registerForm.get('name').touched) ">
+                    {{error.message}}
+                </div>
+            </ng-container>
+        </div>
+
+
+        <ion-item>
+            <ion-label position="stacked">Apellidos <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input type="text" class="form-control" placeholder="" formControlName="lastname" required></ion-input>
+        </ion-item>
+        <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.lastname">
+                <div class="error-message"
+                    *ngIf="registerForm.get('lastname').hasError(error.type) && (registerForm.get('lastname').dirty || registerForm.get('lastname').touched) ">
+                    {{error.message}}
+                </div>
+            </ng-container>
+        </div>
+
+
+        <ion-item>
+            <ion-label position="stacked">Email <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input type="email" class="form-control" placeholder="" formControlName="email" required></ion-input>
+        </ion-item>
+        <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.email">
+                <div class="error-message"
+                    *ngIf="registerForm.get('email').hasError(error.type) && (registerForm.get('email').dirty || registerForm.get('email').touched) ">
+                    {{error.message}}
+                </div>
+            </ng-container>
+        </div>
+
+
+        <ion-item>
+            <ion-label position="stacked">Contraseña <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input type="password" class="form-control" placeholder="" formControlName="password" required>
+            </ion-input>
+        </ion-item>
+        <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.password">
+                <div class="error-message"
+                    *ngIf="registerForm.get('password').hasError(error.type) && (registerForm.get('password').dirty || registerForm.get('password').touched) ">
+                    {{error.message}}
+                </div>
+            </ng-container>
+        </div>
+
+
+        <!--<ion-item>
+            <ion-label position="stacked">Confirmar contraseña <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input type="password" class="form-control" placeholder="" formControlName="confirmpassword" required>
+            </ion-input>
+        </ion-item>
+        <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.confirmpassword">
+                <div class="error-message"
+                    *ngIf="registerForm.get('confirmpassword').hasError(error.type) && (registerForm.get('confirmpassword').dirty || registerForm.get('confirmpassword').touched) ">
+                    {{error.message}}
+                </div>
+            </ng-container>
+        </div>-->
+
+        <div class="ion-padding">
+            <ion-button (click)="onRegister()" [disabled]="!registerForm.valid" shape="round" size="default" color="primary" expand="block">
+                Registrarse</ion-button>
+        </div>
+        <div class="ion-padding">
+            <ion-button routerLink="/login" shape="round" size="default" color="primary" expand="block">Iniciar Sesión</ion-button>
+    </div>
+
+    </form>
+
+</ion-content>

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-fab routerLink="/subject/{{subject.id}}"  slot="start">
+          <ion-icon  name="arrow-round-back"></ion-icon>
+        </ion-fab>
+    <ion-title>{{subject.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="card-welcome">
+    <ion-card-content>
+        <ion-card-title style="color:#fff;" class="text-white">
+            {{homework.title}}
+        </ion-card-title>
+        <div class="flex-row-th">
+            <ion-card-subtitle style="color:#fff;" class="mg-rigth text-white">
+                <ion-icon name="pricetags"></ion-icon>
+                {{category.name}}
+            </ion-card-subtitle>
+            <ion-card-subtitle style="color:#fff;" class="mg-left text-white">
+                <ion-icon name="person"></ion-icon>
+                {{user.username}}
+            </ion-card-subtitle>
+        </div>
+        
+    </ion-card-content>
+  </ion-card>
+  <hr>
+<div *ngFor="let file of files">
+  <ion-card>
+    <ion-card-content >
+        <div class="" style="text-align: right;">
+            <img [src]="file.url_file" *ngIf="file.type == 'img' " alt="">
+            <ion-button *ngIf="file.type == 'img' " href="{{file.url_file}}" class="">Descargar IMG</ion-button>
+        </div>
+        <div class="flex-row">
+            <ion-icon class="icon-lg" *ngIf="file.type == 'pdf' " name="document"></ion-icon>
+            <ion-button *ngIf="file.type == 'pdf' " href="{{file.url_file}}">Descargar .PDF</ion-button>
+            <ion-icon class="icon-lg" *ngIf="file.type == 'word' " name="paper"></ion-icon>
+            <ion-button *ngIf="file.type == 'word' " href="{{file.url_file}}">Descargar .DOC</ion-button>
+        </div>
+        
+    </ion-card-content>
+    </ion-card>
+</div>
+</ion-content>

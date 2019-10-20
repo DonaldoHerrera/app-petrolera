@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Perfil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+<ion-button (click)="logout()">Cerrar Sesión</ion-button>
+  <ion-list-header>Mi Perfil</ion-list-header>
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="https://ionicframework.com/docs/demos/api/list/avatar-poe.png">
+    </ion-avatar>
+    <ion-label>donaldohrr</ion-label>
+  </ion-item>
+  <br>
+
+  <form [formGroup]="perfilForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+          <ion-label position="stacked">Nombre de usuario <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input type="text" class="form-control" placeholder="" formControlName="username" required>donaldohrr</ion-input>
+      </ion-item>
+      <div class="error-messages">
+          <ng-container *ngFor="let error of error_messages.username">
+              <div class="error-message"
+                  *ngIf="perfilForm.get('username').hasError(error.type) && (perfilForm.get('username').dirty || perfilForm.get('username').touched) ">
+                  {{error.message}}
+              </div>
+          </ng-container>
+      </div>
+
+
+      <ion-item>
+          <ion-label position="stacked">Nombre <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input type="text" class="form-control" placeholder="" formControlName="name" required>Donaldo</ion-input>
+      </ion-item>
+      <div class="error-messages">
+          <ng-container *ngFor="let error of error_messages.name">
+              <div class="error-message"
+                  *ngIf="perfilForm.get('name').hasError(error.type) && (perfilForm.get('name').dirty || perfilForm.get('name').touched) ">
+                  {{error.message}}
+              </div>
+          </ng-container>
+      </div>
+
+
+      <ion-item>
+          <ion-label position="stacked">Apellidos <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input type="text" class="form-control" placeholder="" formControlName="lastname" required>Herrera Alvarez</ion-input>
+      </ion-item>
+      <div class="error-messages">
+          <ng-container *ngFor="let error of error_messages.lastname">
+              <div class="error-message"
+                  *ngIf="perfilForm.get('lastname').hasError(error.type) && (perfilForm.get('lastname').dirty || perfilForm.get('lastname').touched) ">
+                  {{error.message}}
+              </div>
+          </ng-container>
+      </div>
+
+
+      <ion-item>
+          <ion-label position="stacked">Email <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input type="email" class="form-control" placeholder="" formControlName="email" required>donald-97@hotmail.com</ion-input>
+      </ion-item>
+      <div class="error-messages">
+          <ng-container *ngFor="let error of error_messages.email">
+              <div class="error-message"
+                  *ngIf="perfilForm.get('email').hasError(error.type) && (perfilForm.get('email').dirty || perfilForm.get('email').touched) ">
+                  {{error.message}}
+              </div>
+          </ng-container>
+      </div>
+
+
+      <ion-item>
+          <ion-label position="stacked">Contraseña <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input type="password" class="form-control" placeholder="" formControlName="password" required>******
+          </ion-input>
+      </ion-item>
+      <div class="error-messages">
+          <ng-container *ngFor="let error of error_messages.password">
+              <div class="error-message"
+                  *ngIf="perfilForm.get('password').hasError(error.type) && (perfilForm.get('password').dirty || perfilForm.get('password').touched) ">
+                  {{error.message}}
+              </div>
+          </ng-container>
+      </div>
+
+
+      <ion-item>
+          <ion-label position="stacked">Confirmar contraseña <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input type="password" class="form-control" placeholder="" formControlName="confirmpassword" required>******
+          </ion-input>
+      </ion-item>
+      <div class="error-messages">
+          <ng-container *ngFor="let error of error_messages.confirmpassword">
+              <div class="error-message"
+                  *ngIf="perfilForm.get('confirmpassword').hasError(error.type) && (perfilForm.get('confirmpassword').dirty || perfilForm.get('confirmpassword').touched) ">
+                  {{error.message}}
+              </div>
+          </ng-container>
+      </div>
+
+      <div class="ion-padding">
+          <ion-button [disabled]="!perfilForm.valid" shape="round" size="default" color="primary" expand="block">
+              Actualizar</ion-button>
+      </div>
+
+  </form>
+</ion-content>
+

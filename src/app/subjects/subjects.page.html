@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-fab routerLink=""  slot="start">
+          <ion-icon  name="arrow-round-back"></ion-icon>
+        </ion-fab>
+    <ion-title>Materias</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Categoria: {{category.name}}
+    </ion-list-header>
+    <ion-searchbar color=""></ion-searchbar>
+
+    <ion-item *ngFor="let subject of subjects" routerLink="/subject/{{subject.id}}">
+      <ion-avatar slot="start">
+        <img [src]="subject.cover_page">
+      </ion-avatar>
+      <ion-label>
+        <h3>{{subject.name}}</h3>
+        <p>Cuatrimestre: {{subject.grade}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

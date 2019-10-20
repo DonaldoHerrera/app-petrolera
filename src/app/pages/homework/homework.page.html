@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Tareas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+    <ion-list>
+      <ion-list-header>
+        Tareas
+      </ion-list-header>
+      <ion-item *ngFor="let homework of homeworks" routerLink="/homework/{{homework.id}}">
+        <ion-avatar slot="start">
+          <img src="https://image.flaticon.com/icons/svg/2113/2113886.svg">
+        </ion-avatar>
+        <ion-label>
+          <span>El usuario {{homework.user.username}} ha publicado una nueva tarea: {{homework.title}}</span>
+          <p>{{homework.subject.name}} {{homework.created_at|date}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    
+  </ion-content>

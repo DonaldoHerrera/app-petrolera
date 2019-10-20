@@ -1,0 +1,25 @@
+<ion-app>
+  <ion-header translucent>
+    <ion-toolbar color="primary">
+      <ion-title>Chat</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content fullscreen>
+    <ion-list>
+      <ion-list-header>
+        Online
+      </ion-list-header>
+      <ion-item *ngFor="let users of usersOnline" routerLink="/conversation">
+        <ion-avatar slot="start">
+          <img src="https://ionicframework.com/docs/demos/api/list/avatar-poe.png">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{users.username}}</h2>
+          <p>{{users.email}}</p>
+          <ion-badge color="primary">Online</ion-badge>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-app>
