@@ -1,25 +1,29 @@
 <ion-header translucent>
     <ion-toolbar color="primary">
-        <ion-fab routerLink="/tabs/tab3"  slot="start">
-            <ion-icon  name="arrow-round-back"></ion-icon>
-          </ion-fab>
-      <ion-title>Chat</ion-title>
+        <ion-fab routerLink="/tabs/tab3" slot="start">
+            <ion-icon name="arrow-round-back"></ion-icon>
+        </ion-fab>
+        <ion-title>Chat</ion-title>
     </ion-toolbar>
-  </ion-header>
+</ion-header>
 
-  <ion-content padding>
-    <div *ngFor="let message of chats">    
-        <div [ngClass]="message.styleClass">      
-          <div class="message-detail">
-            {{message.msgStr}}
-          </div>
+<ion-content padding>
+    <div *ngFor="let message of messages">
+        <div class="flex-row">
+            <div class="sender" *ngIf="message.id == 'EV9AzvXFluxwfOTjrQer' ">
+                {{message.message}}
+            </div>
+            <div class="get" *ngIf="message.id == 'NknrcvNLcLZgqDK5Wk9a' ">
+                {{message.message}}
+            </div>
         </div>
     </div>
-  </ion-content>
+</ion-content>
 
-  <ion-footer>
+<ion-footer>
     <ion-item>
-      <ion-input style="padding: 20px 0px !important;" type="text" [(ngModel)]="chat_input" placeholder="Enter message"></ion-input>
-      <ion-icon name="md-send" (click)="send(chat_input)"item-right></ion-icon>
+        <ion-input style="padding: 20px 0px !important;" type="text" [(ngModel)]="chat_input"
+            placeholder="Enter message"></ion-input>
+        <ion-icon name="md-send" (click)="send(chat_input)" item-right></ion-icon>
     </ion-item>
-  </ion-footer>
+</ion-footer>

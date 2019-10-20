@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+    production: false,
+    firebase: {
+        apiKey: "AIzaSyDbnbVrVoHofGVkzCEfdUQsZcVvvvgHoeE",
+        authDomain: "petrolera-app-students.firebaseapp.com",
+        databaseURL: "https://petrolera-app-students.firebaseio.com",
+        projectId: "petrolera-app-students",
+        storageBucket: "petrolera-app-students.appspot.com",
+        messagingSenderId: "113291627506",
+        appId: "1:113291627506:web:348f845be362a2e8fe796b"
+    }
 };
 
 /*
